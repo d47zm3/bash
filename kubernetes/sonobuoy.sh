@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# shellcheck disable=SC1090
 source <(curl -s https://raw.githubusercontent.com/d47zm3/bash-framework/master/bash.sh)
 
 github_project="vmware-tanzu/sonobuoy"
@@ -22,7 +23,7 @@ help_sonobuoy() {
   decho "sonobuoy run --wait"
   decho ">>> to print results:"
   decho "sonobuoy results \$( sonobuoy retrieve )"
-  decho "to cleanup:"
+  decho ">>> to cleanup:"
   decho "sonobuoy delete --wait"
 }
 
@@ -36,7 +37,7 @@ else
   if [[ "${current_version}" != "${latest_tag}" ]]
   then
     decho "updating ${github_project}"
-    rm -f /usr/local/bin/${github_project_short}
+    rm -f "/usr/local/bin/${github_project_short}"
     download_sonobuoy
   else
     decho "${github_project} is in current version!"
