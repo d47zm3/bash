@@ -24,7 +24,3 @@ docker_exists() {
     return 0
   fi
 }
-
-ubuntu_update() {
-  apt-get update && apt-get -y upgrade && apt-get -y dist-upgrade
-}
